@@ -2,8 +2,15 @@ import streamlit as st
 
 st.set_page_config(page_title="Aesthetic Colour Harmony Tool", layout="centered")
 
+st.title("🧠 Aesthetic Colour Harmony Evaluator")
+st.markdown("Match your contrast, tone, and best colours in under 30 seconds.")
+
+skin_tone = st.selectbox("What is your skin tone?", ["light", "medium/tan", "dark"])
+undertone = st.selectbox("What is your undertone?", ["warm", "cool"])
+hair_colour = st.selectbox("What is your hair colour?", ["blonde", "white", "brown", "dark brown", "auburn", "black"])
+eye_colour = st.selectbox("What is your eye colour?", ["blue", "green", "hazel", "brown", "dark brown", "gray"])
+
 def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
-    # Determine contrast type
     light_eyes = ['blue', 'green', 'gray']
     dark_eyes = ['brown', 'dark brown', 'hazel']
     light_hair = ['blonde', 'white']
@@ -29,7 +36,6 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
     else:
         contrast = 'Unknown'
 
-    # Determine colour palette
     warm_palette = [
         "Cream", "Camel", "Caramel", "Beige", "Nude",
         "Tan", "Mocha", "Coffee", "Brown", "Olive", "Khaki", "Army"
@@ -41,42 +47,16 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
     ]
 
     if undertone == 'warm':
-        best_colours = warm_palette
-        worst_colours = ["Icy Blue", "Charcoal", "Black", "Marine", "Light Blue"]
-    elif undertone == 'cool':
-        best_colours = cool_palette
-        worst_colours = ["Camel", "Caramel", "Mustard", "Olive", "Army"]
+        best = warm_palette
+        worst = ["Icy Blue", "Charcoal", "Black", "Marine", "Light Blue"]
     else:
-        best_colours = []
-        worst_colours = []
+        best = cool_palette
+        worst = ["Camel", "Caramel", "Mustard", "Olive", "Army"]
 
-    return {
-        "contrast": contrast,
-        "best": best_colours,
-        "worst": worst_colours
-    }
+    return contrast, best, worst
 
-# --- USER INTERFACE ---
-print("═══════════════════════════════════════")
-print("🧠  AESTHETIC COLOUR HARMONY CALCULATOR")
-print("═══════════════════════════════════════\n")
-
-undertone = input("→ What is your undertone? (warm / cool): ").strip().lower()
-skin_tone = input("→ What is your skin tone? (light / medium/tan / dark): ").strip().lower()
-hair_colour = input("→ What is your hair colour? (blonde / white / brown / dark brown / auburn / black): ").strip().lower()
-eye_colour = input("→ What is your eye colour? (blue / green / hazel / brown / dark brown / gray): ").strip().lower()
-
-print("\n🎯 Analyzing your visual profile...")
-print("───────────────────────────────────────")
-
-profile = get_colour_profile(skin_tone, undertone, hair_colour, eye_colour)
-
-print(f"\n🧩 RECOMMENDED CONTRAST LEVEL: {profile['contrast']}")
-print("\n✅ BEST COLOURS FOR YOUR PROFILE:")
-print("   " + " · ".join(profile["best"]))
-
-print("\n🚫 COLOURS TO AVOID:")
-print("   " + " · ".join(profile["worst"]))
-
-print("\n🔗 Harmonise colour. Build presence. Every fit starts here.")
-print("═══════════════════════════════════════")
+if st.button("💡 Show My Colour Profile"):
+    contrast, best, worst = get_colour_profile(skin_tone, undertone, hair_colour, eye_colour)
+    st.subheader(f"🎯 Recommended Contrast Level: {contrast}")
+    st.markdown(f"✅ **Best Colours for You:**\n- " + " · ".join(best))
+    st.markdown(f"🚫 **Colours to Avoid:**\n- " + " · ".join(worst))

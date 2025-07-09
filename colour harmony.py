@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(page_title="Aesthetic Colour Harmony Tool", layout="centered")
+
 def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
     # Determine contrast type
     light_eyes = ['blue', 'green', 'gray']

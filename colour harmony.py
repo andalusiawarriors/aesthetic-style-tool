@@ -9,8 +9,15 @@ st.set_page_config(
 )
 
 # ---- AW LOGO ----
-st.image("https://raw.githubusercontent.com/andalusiawarriors/aesthetic-style-tool/refs/heads/main/ICON.png", width=140)  # Replace with your AW logo image URL
 
+st.markdown(
+    """
+    <div style="display: flex; justify-content: center;">
+        <img src="https://raw.githubusercontent.com/andalusiawarriors/aesthetic-style-tool/refs/heads/main/ICON.png" width="140">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 # ---- HEADLINE ----
 st.markdown(
     "<h2 style='text-align: center; '>AW Colour Harmony Evaluator</h2>",

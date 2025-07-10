@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # ---- AW LOGO ----
-st.image("https://your-logo-url.com/aw-logo.png", width=140)  # Replace with your AW logo image URL
+st.image("https://raw.githubusercontent.com/andalusiawarriors/aesthetic-style-tool/refs/heads/main/ICON.png", width=140)  # Replace with your AW logo image URL
 
 # ---- HEADLINE ----
 st.markdown(

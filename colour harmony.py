@@ -20,7 +20,7 @@ st.markdown(
 )
 # ---- HEADLINE ----
 st.markdown(
-    "<h2 style='text-align: center; '>AW Colour Harmony Evaluator</h2>",
+    "<h2 style='text-align: center; '>AW Colour Harmony Calculator</h2>",
     unsafe_allow_html=True
 )
 

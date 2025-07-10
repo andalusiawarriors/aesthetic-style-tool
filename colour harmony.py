@@ -13,12 +13,12 @@ st.image("https://raw.githubusercontent.com/andalusiawarriors/aesthetic-style-to
 
 # ---- HEADLINE ----
 st.markdown(
-    "<h2 style='text-align: center; color: #8B0000;'>AW Colour Harmony Evaluator</h2>",
+    "<h2 style='text-align: center; '>AW Colour Harmony Evaluator</h2>",
     unsafe_allow_html=True
 )
 
 st.markdown(
-    "<p style='text-align: center; color: #D4AF37;'>Unlock your contrast. Weaponize your palette.</p><hr>",
+    "<p style='text-align: center; '>Unlock your contrast. Weaponize your palette.</p><hr>",
     unsafe_allow_html=True
 )
 

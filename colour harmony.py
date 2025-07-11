@@ -1,6 +1,6 @@
 import streamlit as st
 
-# ---- AW BRAND CONFIG ----
+# ---- PAGE CONFIG ----
 st.set_page_config(
     page_title="AW Colour Harmony Tool",
     page_icon="🎯",
@@ -8,24 +8,23 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# ---- AW LOGO ----
-
+# ---- CENTERED LOGO ----
 st.markdown(
     """
-    <div style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: center; padding-bottom: 10px;">
         <img src="https://raw.githubusercontent.com/andalusiawarriors/aesthetic-style-tool/refs/heads/main/ICON.png" width="140">
     </div>
     """,
     unsafe_allow_html=True
 )
+
 # ---- HEADLINE ----
 st.markdown(
-    "<h2 style='text-align: center; '>AW Colour Harmony Calculator</h2>",
+    "<h2 style='text-align: center; color: #8B0000;'>AW Colour Harmony Evaluator</h2>",
     unsafe_allow_html=True
 )
-
 st.markdown(
-    "<p style='text-align: center; '>Unlock your contrast. Weaponize your palette.</p><hr>",
+    "<p style='text-align: center; color: #D4AF37;'>Unlock your contrast. Weaponize your palette.</p><hr>",
     unsafe_allow_html=True
 )
 
@@ -35,14 +34,14 @@ skin_tone = st.selectbox("What is your skin tone?", ["light", "medium/tan", "dar
 hair_colour = st.selectbox("What is your hair colour?", ["blonde", "white", "brown", "dark brown", "auburn", "black"])
 eye_colour = st.selectbox("What is your eye colour?", ["blue", "green", "hazel", "brown", "dark brown", "gray"])
 
-
+# ---- LOGIC FUNCTION ----
 def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
     light_eyes = ['blue', 'green', 'gray']
     dark_eyes = ['brown', 'dark brown', 'hazel']
     light_hair = ['blonde', 'white']
     dark_hair = ['brown', 'dark brown', 'auburn', 'black']
 
-    # Contrast logic
+    # Determine contrast
     if skin_tone == 'light':
         if hair_colour in dark_hair and eye_colour in light_eyes:
             contrast = 'High Contrast'
@@ -63,7 +62,7 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
     else:
         contrast = 'Unknown'
 
-    # Palette logic
+    # Define colour palettes
     warm_palette = [
         "Cream", "Camel", "Caramel", "Beige", "Nude",
         "Tan", "Mocha", "Coffee", "Brown", "Olive", "Khaki", "Army"
@@ -73,32 +72,38 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
         "Dusty Pink", "Taupe", "Gray", "Charcoal", "Black", "Light Gray"
     ]
     neutral_palette = [
-        "Stone", "Greige", "Muted Olive", "Ash", "Slate", "Earth Grey",
-        "Saddle Brown", "Faded Navy", "Sand", "Muted Charcoal"
+        "Stone", "Greige", "Ash", "Slate", "Earth Grey",
+        "Muted Olive", "Faded Navy", "Taupe", "Sand", "Muted Charcoal"
     ]
 
+    # Match palettes
     if undertone == 'warm':
         best = warm_palette
         worst = ["Icy Blue", "Charcoal", "Black", "Marine", "Light Blue"]
     elif undertone == 'cool':
         best = cool_palette
         worst = ["Camel", "Caramel", "Mustard", "Olive", "Army"]
-    else:  # neutral
+    elif undertone == 'neutral':
         best = neutral_palette
-        worst = ["Neon tones", "High saturation colours", "Over-bright whites"]
+        worst = ["Neon tones", "Highly saturated reds", "Super bright whites"]
+    else:
+        best = []
+        worst = []
 
     return contrast, best, worst
 
-
-# ---- BUTTON + RESULTS ----
+# ---- RESULTS ----
 if st.button("💡 Show My Colour Profile"):
     contrast, best, worst = get_colour_profile(skin_tone, undertone, hair_colour, eye_colour)
 
     st.markdown(f"### 🎯 Recommended Contrast Level: `{contrast}`")
+    st.markdown(f"🟡 Undertone: **{undertone.capitalize()}**")
+
     st.markdown("#### ✅ Best Colour Families:")
     st.write(" · ".join(best))
 
     st.markdown("#### 🚫 Colours to Avoid:")
     st.write(" · ".join(worst))
 
-    st.markdown("<hr><p style='color:#8B0000;'>This tool is part of the AW Aesthetic Course. Master your image, dominate the room.</p>", unsafe_allow_html=True)
+    st.markdown("<hr><p style='color:#8B0000;'>This tool is part of the AW Aesthetic System. Master your image, then dominate the room.</p>", unsafe_allow_html=True)
+

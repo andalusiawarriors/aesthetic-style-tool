@@ -79,13 +79,13 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
     # Match palettes
     if undertone == 'warm':
         best = warm_palette
-        worst = ["Icy Blue", "Charcoal", "Black", "Marine", "Light Blue"]
+        worst = ["Charcoal", "Black", "Marine", "Light Blue", "Taupe"]
     elif undertone == 'cool':
         best = cool_palette
-        worst = ["Camel", "Caramel", "Mustard", "Olive", "Army"]
+        worst = ["Camel", "Caramel", "Mustard", "Olive", "Khaki"]
     elif undertone == 'neutral':
         best = neutral_palette
-        worst = ["Neon tones", "Highly saturated reds", "Super bright whites"]
+        worst = ["Over-saturated black", "Stark white", "Neon beige", "Silver grey", "Pale khaki"]
     else:
         best = []
         worst = []
@@ -102,8 +102,9 @@ if st.button("💡 Show My Colour Profile"):
     st.markdown("#### ✅ Best Colour Families:")
     st.write(" · ".join(best))
 
-    st.markdown("#### 🚫 Colours to Avoid:")
+    st.markdown("#### 🚫 Neutral Colours to Avoid:")
     st.write(" · ".join(worst))
 
-    st.markdown("<hr><p style='color:#8B0000;'>This tool is part of the AW Aesthetic System. Master your image, then dominate the room.</p>", unsafe_allow_html=True)
+    st.markdown("<hr><p style='color:#8B0000;'>This tool is part of the AW Aesthetic Course. Master your image, then dominate the room.</p>", unsafe_allow_html=True)
+
 

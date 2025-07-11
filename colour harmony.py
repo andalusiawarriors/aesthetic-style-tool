@@ -96,10 +96,10 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
 if st.button("💡 Show My Colour Profile"):
     contrast, best, worst = get_colour_profile(skin_tone, undertone, hair_colour, eye_colour)
 
-    st.markdown(f"### 🎯 Recommended Contrast Level: `{contrast}`")
+    st.markdown(f"### 🎯 Contrast Level: `{contrast}`")
     st.markdown(f"🟡 Undertone: **{undertone.capitalize()}**")
 
-    st.markdown("#### ✅ Best Colour Families:")
+    st.markdown("#### ✅ Best Neutral Colours:")
     st.write(" · ".join(best))
 
     st.markdown("#### 🚫 Neutral Colours to Avoid:")

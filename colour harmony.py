@@ -3,7 +3,7 @@ import streamlit as st
 # ---- PAGE CONFIG ----
 st.set_page_config(
     page_title="AW Colour Harmony Tool",
-    page_icon="🎯",
+    page_icon="🛠️",
     layout="centered",
     initial_sidebar_state="collapsed"
 )

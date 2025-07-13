@@ -76,20 +76,24 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
         "Muted Olive", "Faded Navy", "Taupe", "Sand", "Muted Charcoal"
     ]
 
-    # Match palettes
+    # Match palettes and principles
     if undertone == 'warm':
         best = warm_palette
-        worst = ["Charcoal", "Black", "Marine", "Light Blue", "Taupe"]
+        worst = ["Icy Neutrals", "Charcoal", "Jet Black", "Marine", "Sapphire", "Cool Lavender", "Cobalt", "Slate", " Dusty rose", "Taupe (blue-based)"]
+        principle = ["Wear colours that feel like the sun touched them (red-based neutrals and yellow-based neutrals). If it looks good under golden light, it’ll look good on you."]
     elif undertone == 'cool':
         best = cool_palette
-        worst = ["Camel", "Caramel", "Mustard", "Olive", "Khaki"]
+        worst = ["Camel", "Caramel", "Mustard", "Olive", "Khaki", "Beige", "Sand", "Army Green", "Brown", "Warm taupes"]
+        Principle = ["Blue-based neutrals like will sharpen your features, while red-based and yellow-based neutrals will clash with your skin and flatten your face."]
     elif undertone == 'neutral':
         best = neutral_palette
-        worst = ["Over-saturated black", "Stark white", "Neon beige", "Silver grey", "Pale khaki"]
+        worst = ["Jet black", "Stark white", "Neon beige", "Silver grey", "Pale khaki"]
+        Principle = ["Wear colours that feel like weathered stone, faded shadow, or earth at dusk - nothing loud, nothing pale, just perfectly muted. If it looks balanced in both golden and silver light, it’ll look balanced on you."]
     else:
         best = []
         worst = []
-
+        principle = []
+   
     return contrast, best, worst
 
 # ---- RESULTS ----
@@ -98,7 +102,10 @@ if st.button("💡 Show My Colour Profile"):
 
     st.markdown(f"### 🎯 Contrast Level: `{contrast}`")
     st.markdown(f"🟡 Undertone: **{undertone.capitalize()}**")
-
+    
+    st.markdown("#### Principle:")
+    st.write(" · ".join(principle))
+    
     st.markdown("#### ✅ Best Neutral Colours:")
     st.write(" · ".join(best))
 

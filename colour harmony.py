@@ -104,7 +104,7 @@ if st.button("💡 Show My Colour Profile"):
     st.markdown(f"🟡 Undertone: **{undertone.capitalize()}**")
     
     st.markdown("#### Principle:")
-    st.write(principle)
+    print(principle)
     
     st.markdown("#### ✅ Best Neutral Colours:")
     st.write(" · ".join(best))

@@ -84,11 +84,11 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
     elif undertone == 'cool':
         best = cool_palette
         worst = ["Camel", "Caramel", "Mustard", "Olive", "Khaki", "Beige", "Sand", "Army Green", "Brown", "Warm taupes"]
-        Principle = ["Blue-based neutrals like will sharpen your features, while red-based and yellow-based neutrals will clash with your skin and flatten your face."]
+        principle = ["Blue-based neutrals like will sharpen your features, while red-based and yellow-based neutrals will clash with your skin and flatten your face."]
     elif undertone == 'neutral':
         best = neutral_palette
         worst = ["Jet black", "Stark white", "Neon beige", "Silver grey", "Pale khaki"]
-        Principle = ["Wear colours that feel like weathered stone, faded shadow, or earth at dusk - nothing loud, nothing pale, just perfectly muted. If it looks balanced in both golden and silver light, it’ll look balanced on you."]
+        principle = ["Wear colours that feel like weathered stone, faded shadow, or earth at dusk - nothing loud, nothing pale, just perfectly muted. If it looks balanced in both golden and silver light, it’ll look balanced on you."]
     else:
         best = []
         worst = []
@@ -104,7 +104,7 @@ if st.button("💡 Show My Colour Profile"):
     st.markdown(f"🟡 Undertone: **{undertone.capitalize()}**")
     
     st.markdown("#### Principle:")
-    print(principle)
+    st.write(principle)
     
     st.markdown("#### ✅ Best Neutral Colours:")
     st.write(" · ".join(best))

@@ -93,11 +93,11 @@ def get_colour_profile(skin_tone, undertone, hair_colour, eye_colour):
         worst = []
         principle = []
    
-    return contrast, best, worst, principle
+    return contrast, best, worst
 
 # ---- RESULTS ----
 if st.button("💡 Show My Colour Profile"):
-    contrast, best, worst, principle = get_colour_profile(skin_tone, undertone, hair_colour, eye_colour)
+    contrast, best, worst = get_colour_profile(skin_tone, undertone, hair_colour, eye_colour)
 
     st.markdown(f"### 🎯 Contrast Level: `{contrast}`")
     st.markdown(f"🟡 Undertone: **{undertone.capitalize()}**")

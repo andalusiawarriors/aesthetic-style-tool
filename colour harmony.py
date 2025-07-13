@@ -103,16 +103,16 @@ if st.button("💡 Show My Colour Profile"):
     st.markdown(f"🟡 Undertone: **{undertone.capitalize()}**")
     
     if undertone == 'warm':
-    st.markdown("#### 🧠 Style Principle for Warm Undertone:")
-    st.markdown("> Wear colours that feel like the sun touched them (red-based neutrals and yellow-based neutrals). If it looks good under golden light, it’ll look good on you.")
+        st.markdown("#### 🧠 Style Principle for Warm Undertone:")
+        st.markdown("> Wear colours that feel like the sun touched them (red-based neutrals and yellow-based neutrals). If it looks good under golden light, it’ll look good on you.")
 
     elif undertone == 'cool':
-    st.markdown("#### 🧠 Style Principle for Cool Undertone:")
-    st.markdown("Blue-based neutrals like will sharpen your features, while red-based and yellow-based neutrals will clash with your skin and flatten your face.")
+        st.markdown("#### 🧠 Style Principle for Cool Undertone:")
+        st.markdown("Blue-based neutrals like will sharpen your features, while red-based and yellow-based neutrals will clash with your skin and flatten your face.")
 
     elif undertone == 'neutral':
-    st.markdown("#### 🧠 Style Principle for Neutral Undertone:")
-    st.markdown("Wear colours that feel like weathered stone, faded shadow, or earth at dusk - nothing loud, nothing pale, just perfectly muted. If it looks balanced in both golden and silver light, it’ll look balanced on you.")
+        st.markdown("#### 🧠 Style Principle for Neutral Undertone:")
+        st.markdown("Wear colours that feel like weathered stone, faded shadow, or earth at dusk - nothing loud, nothing pale, just perfectly muted. If it looks balanced in both golden and silver light, it’ll look balanced on you.")
     
     st.markdown("#### ✅ Best Neutral Colours:")
     st.write(" · ".join(best))
